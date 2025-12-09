@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios por Perfil - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+        }
+        
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .profile-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        
+        .profile-card.docente { background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 90%); }
+        .profile-card.directivo { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .profile-card.nivel { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .profile-card.rrhh { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .profile-icon {
+            font-size: 5em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+        
+        .profile-title h2 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+        
+        .profile-title p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            color: #2d3748;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2em;
+            min-width: 40px;
+        }
+        
+        .benefit-text h4 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            color: #2d3748;
+        }
+        
+        .benefit-text p {
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        
+        .summary h2 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .summary-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .summary-item .icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+        
+        .summary-item h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .summary-item p {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 NEXO: BENEFICIOS POR PERFIL</h1>
+        <p class="subtitle">Cada usuario obtiene ventajas específicas según su rol en el sistema</p>
+        
+        <div class="profiles-grid">
+            <!-- DOCENTE/AGENTE -->
+            <div class="profile-card docente">
+                <div class="profile-header">
+                    <div class="profile-icon">👨‍🏫</div>
+                    <div class="profile-title">
+                        <h2>Docente/Agente</h2>
+                        <p>Usuario del sistema educativo</p>
+                    </div>
+                </div>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">🏠</div>
+                        <div class="benefit-text">
+                            <h4>Gestión desde casa</h4>
+                            <p>Solicitá licencias, bajas o consultas sin ir a la escuela</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">👁️</div>
+                        <div class="benefit-text">
+                            <h4>Seguimiento 24/7</h4>
+                            <p>Consultá el estado de tus trámites en cualquier momento</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📂</div>
+                        <div class="benefit-text">
+                            <h4>Tu historial completo</h4>
+                            <p>Accedé a tu legajo único con todo tu recorrido laboral</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-text">
+                            <h4>Respuestas más rápidas</h4>
+                            <p>Reducción de tiempos de espera en tus gestiones</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- EQUIPO DIRECTIVO -->
+            <div class="profile-card directivo">
+                <div class="profile-header">
+                    <div class="profile-icon">👔</div>
+                    <div class="profile-title">
+                        <h2>Equipo Directivo</h2>
+                        <p>Director, Vicedirector, Secretario</p>
+                    </div>
+                </div>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div class="benefit-text">
+                            <h4>Control total de plazas</h4>
+                            <p>Gestioná horarios, divisiones y tableros en tiempo real</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-text">
+                            <h4>Suplencias ágiles</h4>
+                            <p>Registrá altas de docentes y suplencias de forma inmediata</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-text">
+                            <h4>Informes automáticos</h4>
+                            <p>Generá reportes de novedades diarias sin papeles</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📉</div>
+                        <div class="benefit-text">
+                            <h4>Menos burocracia</h4>
+                            <p>Revisá y aprobá solicitudes digitalmente</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- DIRECCIÓN DE NIVEL -->
+            <div class="profile-card nivel">
+                <div class="profile-header">
+                    <div class="profile-icon">📊</div>
+                    <div class="profile-title">
+                        <h2>Dirección de Nivel</h2>
+                        <p>Supervisión educativa</p>
+                    </div>
+                </div>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">👁️</div>
+                        <div class="benefit-text">
+                            <h4>Visión panorámica</h4>
+                            <p>Consultá datos de todas las organizaciones de tu nivel</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📚</div>
+                        <div class="benefit-text">
+                            <h4>Gestión de planes</h4>
+                            <p>Creá y administrá planes de estudio centralizadamente</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📋</div>
+                        <div class="benefit-text">
+                            <h4>Acceso a información</h4>
+                            <p>Revisá solicitudes y legajos de agentes del nivel</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">📈</div>
+                        <div class="benefit-text">
+                            <h4>Toma de decisiones</h4>
+                            <p>Datos confiables para políticas educativas</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- RRHH -->
+            <div class="profile-card rrhh">
+                <div class="profile-header">
+                    <div class="profile-icon">⚡</div>
+                    <div class="profile-title">
+                        <h2>Recursos Humanos</h2>
+                        <p>Gestión ministerial</p>
+                    </div>
+                </div>
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">🔗</div>
+                        <div class="benefit-text">
+                            <h4>Centralización total</h4>
+                            <p>Toda la información laboral en un solo sistema</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✅</div>
+                        <div class="benefit-text">
+                            <h4>Aprobaciones eficientes</h4>
+                            <p>Revisá, aprobá o rechazá solicitudes digitalmente</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">🔍</div>
+                        <div class="benefit-text">
+                            <h4>Trazabilidad completa</h4>
+                            <p>Auditoría y seguimiento de todos los movimientos</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">⚙️</div>
+                        <div class="benefit-text">
+                            <h4>Automatización</h4>
+                            <p>Generación automática de servicios y subservicios</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>🌟 Beneficios Transversales para TODOS</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="icon">🌍</div>
+                    <h3>Accesibilidad</h3>
+                    <p>Disponible 24/7 desde cualquier dispositivo con internet</p>
+                </div>
+                
+                <div class="summary-item">
+                    <div class="icon">🔒</div>
+                    <h3>Seguridad</h3>
+                    <p>Información protegida con respaldos automáticos y control de accesos</p>
+                </div>
+                
+                <div class="summary-item">
+                    <div class="icon">♻️</div>
+                    <h3>Sustentabilidad</h3>
+                    <p>Reducción drástica del uso de papel y recursos físicos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

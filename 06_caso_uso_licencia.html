@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Uso - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+        }
+        
+        .scenario {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .scenario h2 {
+            color: #2d3748;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .scenario p {
+            color: #4a5568;
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: translateX(-50%);
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-content {
+            width: 45%;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .step:nth-child(odd) .step-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+        
+        .step:nth-child(even) .step-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .step-icon {
+            font-size: 3em;
+        }
+        
+        .step-title h3 {
+            color: #2d3748;
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+        
+        .step-title .actor {
+            color: #667eea;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        
+        .step-description {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .step-action {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .step-action h4 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .step-action p {
+            color: #4a5568;
+            font-size: 1em;
+        }
+        
+        .time-indicator {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2d3748;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .final-result {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .final-result h2 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .final-result p {
+            color: #4a5568;
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+        
+        .final-result .success-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+        
+        @media print {
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 CASO DE USO: LICENCIA MÉDICA</h1>
+        <p class="subtitle">Seguí el recorrido completo de una solicitud en NEXO</p>
+        
+        <div class="scenario">
+            <h2>🎬 La Situación</h2>
+            <p><strong>María González</strong>, docente de Lengua en la Escuela Secundaria N° 12, necesita una licencia médica por 10 días debido a una cirugía programada. Antes tenía que ir a la escuela, llenar formularios, conseguir firmas y esperar semanas sin saber el estado. <strong>Ahora con NEXO todo es diferente...</strong></p>
+        </div>
+        
+        <div class="timeline">
+            <!-- PASO 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">💻</div>
+                        <div class="step-title">
+                            <h3>María crea la solicitud</h3>
+                            <span class="actor">👩‍🏫 Docente</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        Desde su casa, María ingresa a NEXO y crea una nueva solicitud de licencia médica. Completa los datos: tipo de licencia, fechas (del 15 al 24 de marzo), adjunta el certificado médico digital.
+                    </div>
+                    <div class="step-action">
+                        <h4>🔧 Acción en NEXO:</h4>
+                        <p>Módulo NOVEDADES → Nueva Solicitud → Licencia Médica</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Lunes 8:00 AM - 10 minutos</span>
+                </div>
+            </div>
+            
+            <!-- PASO 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">📋</div>
+                        <div class="step-title">
+                            <h3>Revisa y presenta</h3>
+                            <span class="actor">👩‍🏫 Docente</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        María revisa que todo esté correcto. Como es un borrador, puede modificarlo. Satisfecha con la información, presiona "Presentar". La solicitud cambia a estado PRESENTADA y se envía automáticamente al equipo directivo.
+                    </div>
+                    <div class="step-action">
+                        <h4>🔧 Estado:</h4>
+                        <p>BORRADOR → PRESENTADA</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Lunes 8:10 AM</span>
+                </div>
+            </div>
+            
+            <!-- PASO 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">👔</div>
+                        <div class="step-title">
+                            <h3>Director revisa la solicitud</h3>
+                            <span class="actor">👔 Equipo Directivo</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        El director recibe una notificación en NEXO. Accede a la solicitud, verifica el certificado médico adjunto, las fechas solicitadas y confirma que cumple con los requisitos. Inicia la revisión y decide presentarla a RRHH.
+                    </div>
+                    <div class="step-action">
+                        <h4>🔧 Estado:</h4>
+                        <p>PRESENTADA → EN REVISIÓN → PRESENTADA (a RRHH)</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Lunes 11:30 AM - 15 minutos</span>
+                </div>
+            </div>
+            
+            <!-- PASO 4 -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">⚡</div>
+                        <div class="step-title">
+                            <h3>RRHH Licencias aprueba</h3>
+                            <span class="actor">⚡ RRHH</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        El área de RRHH Licencias recibe la solicitud. Verifica que la documentación esté completa, valida contra el legajo único de María y aprueba la solicitud. El sistema automáticamente genera el subservicio correspondiente.
+                    </div>
+                    <div class="step-action">
+                        <h4>🔧 Estado:</h4>
+                        <p>EN REVISIÓN → APROBADA</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Martes 10:00 AM - 20 minutos</span>
+                </div>
+            </div>
+            
+            <!-- PASO 5 -->
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">✅</div>
+                        <div class="step-title">
+                            <h3>RRHH confirma la solicitud</h3>
+                            <span class="actor">⚡ RRHH</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        El personal de RRHH realiza la confirmación final. En este momento el sistema genera automáticamente el subservicio de licencia en el legajo de María y actualiza todos los registros relacionados.
+                    </div>
+                    <div class="step-action">
+                        <h4>🔧 Estado:</h4>
+                        <p>APROBADA → FINALIZADA</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Martes 2:00 PM</span>
+                </div>
+            </div>
+            
+            <!-- PASO 6 -->
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <div class="step-header">
+                        <div class="step-icon">🔔</div>
+                        <div class="step-title">
+                            <h3>María recibe la notificación</h3>
+                            <span class="actor">👩‍🏫 Docente</span>
+                        </div>
+                    </div>
+                    <div class="step-description">
+                        María recibe una notificación de que su licencia fue aprobada. Puede ingresar a NEXO en cualquier momento para ver los detalles, descargar la documentación y consultar su legajo actualizado con el nuevo subservicio registrado.
+                    </div>
+                    <div class="step-action">
+                        <h4>💡 Transparencia Total:</h4>
+                        <p>María pudo seguir TODO el proceso en tiempo real desde su celular</p>
+                    </div>
+                    <span class="time-indicator">⏱️ Martes 2:05 PM</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="final-result">
+            <div class="success-icon">🎉</div>
+            <h2>Resultado Final</h2>
+            <p>
+                <strong>Tiempo total: 1 día y medio</strong><br><br>
+                ✅ Cero traslados físicos<br>
+                ✅ Cero papeles impresos<br>
+                ✅ Seguimiento en tiempo real<br>
+                ✅ Registro automático en legajo<br>
+                ✅ Documentación digital disponible para siempre<br><br>
+                <em>Antes este proceso tomaba entre 2 y 4 semanas, con múltiples viajes a la escuela y al ministerio.</em>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

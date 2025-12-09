@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antes vs Después - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3.5em;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 0;
+            margin-bottom: 50px;
+        }
+        
+        .side {
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        .before {
+            background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);
+        }
+        
+        .after {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #667eea;
+        }
+        
+        .side h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2d3748;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        .item {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .item:hover {
+            transform: translateX(10px);
+        }
+        
+        .before .item:hover {
+            transform: translateX(-10px);
+        }
+        
+        .icon {
+            font-size: 3em;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .content h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .content p {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .benefits {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+        
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-card .icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card h3 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ TRANSFORMACIÓN DIGITAL</h1>
+        
+        <div class="comparison">
+            <div class="side before">
+                <h2>❌ ANTES</h2>
+                
+                <div class="item">
+                    <div class="icon">📄</div>
+                    <div class="content">
+                        <h3>Papeles físicos</h3>
+                        <p>Formularios impresos, firmas en múltiples copias, riesgo de pérdida de documentación</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">🚶‍♂️</div>
+                    <div class="content">
+                        <h3>Múltiples ventanillas</h3>
+                        <p>Traslados constantes entre dependencias, pérdida de tiempo en filas y esperas</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">❓</div>
+                    <div class="content">
+                        <h3>Sin seguimiento</h3>
+                        <p>Incertidumbre sobre el estado de trámites, sin visibilidad del proceso</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">🐌</div>
+                    <div class="content">
+                        <h3>Procesos lentos</h3>
+                        <p>Semanas o meses de espera, demoras en respuestas y resoluciones</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">💾</div>
+                    <div class="content">
+                        <h3>Información fragmentada</h3>
+                        <p>Datos dispersos en diferentes archivos y sistemas no integrados</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">❌</div>
+                    <div class="content">
+                        <h3>Propenso a errores</h3>
+                        <p>Errores de transcripción, información duplicada o inconsistente</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider">
+                ➜
+            </div>
+            
+            <div class="side after">
+                <h2>✅ CON NEXO</h2>
+                
+                <div class="item">
+                    <div class="icon">💻</div>
+                    <div class="content">
+                        <h3>100% Digital</h3>
+                        <p>Todo en formato electrónico, accesible desde cualquier dispositivo con internet</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">🏠</div>
+                    <div class="content">
+                        <h3>Sistema único integrado</h3>
+                        <p>Todos los trámites en una sola plataforma, desde tu casa o trabajo</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">👁️</div>
+                    <div class="content">
+                        <h3>Seguimiento en tiempo real</h3>
+                        <p>Visibilidad completa: sabés exactamente en qué estado está tu solicitud 24/7</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">⚡</div>
+                    <div class="content">
+                        <h3>Respuestas ágiles</h3>
+                        <p>Procesos automatizados que reducen tiempos de espera significativamente</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">🔗</div>
+                    <div class="content">
+                        <h3>Información centralizada</h3>
+                        <p>Legajo único digital con todo tu historial laboral integrado</p>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="icon">✅</div>
+                    <div class="content">
+                        <h3>Precisión y trazabilidad</h3>
+                        <p>Registro automático, auditable y sin errores de carga manual</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h2>🎯 BENEFICIOS CLAVE</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">⏱️</div>
+                    <h3>Ahorro de Tiempo</h3>
+                    <p>Reducción del 70% en tiempo de gestión de trámites administrativos</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon">🌍</div>
+                    <h3>Acceso Universal</h3>
+                    <p>Disponible 24/7 desde cualquier lugar con conexión a internet</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="icon">🔒</div>
+                    <h3>Seguridad y Respaldo</h3>
+                    <p>Información protegida con copias de seguridad automáticas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

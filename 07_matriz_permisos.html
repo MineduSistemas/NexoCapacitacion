@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permisos por Perfil - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+        }
+        
+        .matrix {
+            display: grid;
+            grid-template-columns: 250px repeat(5, 1fr);
+            gap: 2px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .cell {
+            background: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .profile-label {
+            background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 90%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+        
+        .module-icon {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .permission {
+            background: #f7fafc;
+            font-size: 0.95em;
+            color: #4a5568;
+        }
+        
+        .permission.full {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            color: #234e52;
+            font-weight: bold;
+        }
+        
+        .permission.partial {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #6b4e00;
+            font-weight: bold;
+        }
+        
+        .permission.read {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2d3748;
+        }
+        
+        .permission.none {
+            background: #f1f5f9;
+            color: #94a3b8;
+        }
+        
+        .legend {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .legend h2 {
+            color: #2d3748;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .legend-color {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legend-color.full {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+        }
+        
+        .legend-color.partial {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+        
+        .legend-color.read {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .legend-color.none {
+            background: #f1f5f9;
+        }
+        
+        .legend-text h4 {
+            color: #2d3748;
+            font-size: 1.2em;
+            margin-bottom: 3px;
+        }
+        
+        .legend-text p {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+            text-align: center;
+        }
+        
+        .highlight-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-card h3 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-card p {
+            color: #4a5568;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        
+        @media print {
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 MATRIZ DE PERMISOS POR PERFIL</h1>
+        <p class="subtitle">¿Qué puede hacer cada usuario en cada módulo del sistema?</p>
+        
+        <div class="matrix">
+            <!-- HEADERS -->
+            <div class="cell header">PERFIL / MÓDULO</div>
+            <div class="cell header">
+                <span class="module-icon">👥</span>
+                PERSONAS
+            </div>
+            <div class="cell header">
+                <span class="module-icon">🏫</span>
+                ORGANIZACIONES
+            </div>
+            <div class="cell header">
+                <span class="module-icon">⚙️</span>
+                POF
+            </div>
+            <div class="cell header">
+                <span class="module-icon">📂</span>
+                LEGAJO ÚNICO
+            </div>
+            <div class="cell header">
+                <span class="module-icon">📋</span>
+                NOVEDADES
+            </div>
+            
+            <!-- DOCENTE/AGENTE -->
+            <div class="cell profile-label">👨‍🏫 DOCENTE/AGENTE</div>
+            <div class="cell permission none">❌ Sin acceso</div>
+            <div class="cell permission none">❌ Sin acceso</div>
+            <div class="cell permission none">❌ Sin acceso</div>
+            <div class="cell permission read">👁️ Consulta<br>legajo personal</div>
+            <div class="cell permission partial">📝 Crea solicitudes<br>📊 Seguimiento</div>
+            
+            <!-- EQUIPO DIRECTIVO -->
+            <div class="cell profile-label">👔 EQUIPO DIRECTIVO</div>
+            <div class="cell permission read">👁️ Consulta<br>datos personales</div>
+            <div class="cell permission partial">👁️ Consulta<br>✏️ Actualiza datos<br>⚙️ Gestiona planes</div>
+            <div class="cell permission partial">👁️ Consulta plazas<br>⚙️ Configura<br>horarios</div>
+            <div class="cell permission read">👁️ Consulta<br>legajos de su<br>institución</div>
+            <div class="cell permission full">✅ Gestión completa<br>Altas, solicitudes,<br>novedades, informes</div>
+            
+            <!-- DIRECCIÓN DE NIVEL -->
+            <div class="cell profile-label">📊 DIRECCIÓN DE NIVEL</div>
+            <div class="cell permission read">👁️ Consulta<br>datos personales</div>
+            <div class="cell permission partial">👁️ Consulta<br>organizaciones<br>➕ Crea planes<br>de estudio</div>
+            <div class="cell permission read">👁️ Consulta<br>plazas</div>
+            <div class="cell permission read">👁️ Consulta<br>legajos de<br>agentes</div>
+            <div class="cell permission read">👁️ Consulta<br>solicitudes</div>
+            
+            <!-- RRHH ALTAS Y BAJAS -->
+            <div class="cell profile-label">⚡ RRHH ALTAS/BAJAS</div>
+            <div class="cell permission partial">➕ Alta de datos<br>personales</div>
+            <div class="cell permission read">👁️ Consulta<br>organizaciones</div>
+            <div class="cell permission read">👁️ Consulta<br>plazas</div>
+            <div class="cell permission full">✅ Gestión completa<br>Servicios y<br>subservicios</div>
+            <div class="cell permission full">✅ Aprueba altas/bajas<br>✅ Confirma<br>solicitudes</div>
+            
+            <!-- RRHH LICENCIAS -->
+            <div class="cell profile-label">⚡ RRHH LICENCIAS</div>
+            <div class="cell permission read">👁️ Consulta<br>datos personales</div>
+            <div class="cell permission read">👁️ Consulta<br>organizaciones</div>
+            <div class="cell permission read">👁️ Consulta<br>plazas</div>
+            <div class="cell permission read">👁️ Consulta<br>legajos</div>
+            <div class="cell permission full">✅ Aprueba licencias<br>✅ Confirma informes<br>⚙️ Gestiona<br>subservicios</div>
+        </div>
+        
+        <div class="legend">
+            <h2>📖 Leyenda de Permisos</h2>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color full"></div>
+                    <div class="legend-text">
+                        <h4>✅ Gestión Completa</h4>
+                        <p>Crear, modificar, aprobar, eliminar</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color partial"></div>
+                    <div class="legend-text">
+                        <h4>⚙️ Gestión Parcial</h4>
+                        <p>Algunas funciones de edición</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color read"></div>
+                    <div class="legend-text">
+                        <h4>👁️ Solo Consulta</h4>
+                        <p>Visualización sin edición</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <div class="legend-color none"></div>
+                    <div class="legend-text">
+                        <h4>❌ Sin Acceso</h4>
+                        <p>Módulo no disponible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="icon">🔒</div>
+                <h3>Seguridad</h3>
+                <p>Cada usuario solo ve y accede a lo que necesita para su función</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="icon">🎯</div>
+                <h3>Eficiencia</h3>
+                <p>Permisos diseñados para agilizar el flujo de trabajo</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="icon">📊</div>
+                <h3>Trazabilidad</h3>
+                <p>Todas las acciones quedan registradas por usuario</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="icon">🔄</div>
+                <h3>Flexibilidad</h3>
+                <p>Los permisos pueden ajustarse según necesidades específicas</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

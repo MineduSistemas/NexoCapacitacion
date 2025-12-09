@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistema NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.3em;
+            margin-bottom: 60px;
+        }
+        
+        .ecosystem {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .module {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .module:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .module.personas { background: linear-gradient(135deg, #FA8BFF 0%, #2BD2FF 90%); }
+        .module.organizaciones { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .module.pof { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .module.legajo { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .module.novedades { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        
+        .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .module h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .module p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .center-module {
+            grid-column: 2;
+            grid-row: 2;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+            font-size: 1.2em;
+        }
+        
+        .actors {
+            margin-top: 60px;
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 40px;
+        }
+        
+        .actors h2 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        
+        .actors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .actor {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .actor-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .actor h4 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .actor p {
+            color: #718096;
+            font-size: 0.95em;
+        }
+        
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 ECOSISTEMA NEXO</h1>
+        <p class="subtitle">Sistema Integral de Gestión Educativa - Provincia de Jujuy</p>
+        
+        <div class="ecosystem">
+            <div class="module personas">
+                <span class="icon">👥</span>
+                <h3>PERSONAS</h3>
+                <p>Administración de datos personales de docentes, administrativos, alumnos y tutores</p>
+            </div>
+            
+            <div class="module organizaciones">
+                <span class="icon">🏫</span>
+                <h3>ORGANIZACIONES</h3>
+                <p>Gestión de edificios, planes de estudio, horarios y estructura institucional</p>
+            </div>
+            
+            <div class="module pof">
+                <span class="icon">⚙️</span>
+                <h3>POF</h3>
+                <p>Planta Orgánica Funcional: administración de plazas por establecimiento y oficina</p>
+            </div>
+            
+            <div class="module legajo center-module">
+                <span class="icon">📂</span>
+                <h3>LEGAJO ÚNICO</h3>
+                <p><strong>NÚCLEO CENTRAL</strong><br>Historial completo laboral del docente/agente en las plantillas nominales</p>
+            </div>
+            
+            <div class="module novedades">
+                <span class="icon">📋</span>
+                <h3>NOVEDADES</h3>
+                <p>Gestión de solicitudes, licencias, designaciones, coberturas y novedades diarias</p>
+            </div>
+        </div>
+        
+        <div class="actors">
+            <h2>🎭 ACTORES DEL SISTEMA</h2>
+            <div class="actors-grid">
+                <div class="actor">
+                    <div class="actor-icon">👨‍🏫</div>
+                    <h4>Docente/Agente</h4>
+                    <p>Consulta legajo y solicita licencias</p>
+                </div>
+                
+                <div class="actor">
+                    <div class="actor-icon">👔</div>
+                    <h4>Equipo Directivo</h4>
+                    <p>Gestiona plazas, altas y novedades institucionales</p>
+                </div>
+                
+                <div class="actor">
+                    <div class="actor-icon">📊</div>
+                    <h4>Dirección de Nivel</h4>
+                    <p>Supervisa y crea planes de estudio</p>
+                </div>
+                
+                <div class="actor">
+                    <div class="actor-icon">⚡</div>
+                    <h4>RRHH</h4>
+                    <p>Aprueba solicitudes y confirma servicios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
