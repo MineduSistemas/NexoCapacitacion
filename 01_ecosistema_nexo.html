@@ -164,11 +164,53 @@
             .container {
                 box-shadow: none;
             }
+            
+            .home-button {
+                display: none;
+            }
+        }
+        
+        .home-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-header img {
+            width: 120px;
+            height: 120px;
         }
     </style>
 </head>
 <body>
+    <a href="00_indice_principal.html" class="home-button" title="Volver al Índice">🏠</a>
     <div class="container">
+        <div class="logo-header">
+            <img src="logo-nexo.png" alt="Logo NEXO">
+        </div>
         <h1>🔗 ECOSISTEMA NEXO</h1>
         <p class="subtitle">Sistema Integral de Gestión Educativa - Provincia de Jujuy</p>
         
