@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas para Instituciones - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+        }
+        
+        .module-section {
+            background: #f7fafc;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 8px solid #667eea;
+        }
+        
+        .module-section h2 {
+            color: #2d3748;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .module-icon {
+            font-size: 1.2em;
+        }
+        
+        .task-list {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .task-list h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e2e8f0;
+        }
+        
+        .task-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .task-list li {
+            color: #2d3748;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .task-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 10px;
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .task-list li ul {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        
+        .task-list li ul li:before {
+            content: "▸";
+            color: #667eea;
+        }
+        
+        .video-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .video-section h2 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .video-section p {
+            color: #4a5568;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .video-button {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(255,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .video-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,0,0,0.4);
+        }
+        
+        .video-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        .home-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-header img {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .important-note {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 6px solid #4299e1;
+        }
+        
+        .important-note h3 {
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .important-note p {
+            color: #2c5282;
+            font-size: 1.2em;
+            line-height: 1.7;
+        }
+        
+        @media print {
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+            .home-button { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="00_indice_principal.html" class="home-button" title="Volver al Índice">🏠</a>
+    <div class="container">
+        <div class="logo-header">
+            <img src="logo-nexo.png" alt="Logo NEXO">
+        </div>
+        <h1>📋 TAREAS PARA INSTITUCIONES EDUCATIVAS</h1>
+        <p class="subtitle">Pasos a seguir para la configuración inicial del sistema</p>
+        
+        <!-- MÓDULO ORGANIZACIÓN -->
+        <div class="module-section">
+            <h2><span class="module-icon">🏫</span>MÓDULO ORGANIZACIÓN</h2>
+            
+            <div class="task-list">
+                <h3>📚 Programa Académico (consultar)</h3>
+                <ul>
+                    <li>Plan de estudio
+                        <ul>
+                            <li>Consultar planes de estudio disponibles</li>
+                            <li>Verificar que correspondan a su nivel educativo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="task-list">
+                <h3>🏢 Organizaciones (modificar)</h3>
+                <ul>
+                    <li>Organizaciones - Completar/actualizar:
+                        <ul>
+                            <li>Datos básicos de la institución</li>
+                            <li>Turnos (mañana, tarde, noche)</li>
+                            <li>Niveles Educativos</li>
+                            <li>Propuesta formativa</li>
+                            <li>Datos de contacto</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="task-list">
+                <h3>⚙️ Gestión Institucional (gestionar)</h3>
+                <ul>
+                    <li>Plan Unidad
+                        <ul>
+                            <li>Vincular plan de estudio correspondiente</li>
+                        </ul>
+                    </li>
+                    <li>Divisiones
+                        <ul>
+                            <li>Creación de divisiones (ej: 1° A, 1° B, 2° A, etc.)</li>
+                        </ul>
+                    </li>
+                    <li>Divisiones por año
+                        <ul>
+                            <li>Distribución de divisiones creadas anteriormente</li>
+                            <li>Asignación a años correspondientes</li>
+                        </ul>
+                    </li>
+                    <li>Tablero de organización
+                        <ul>
+                            <li>Creación de tableros de horarios</li>
+                            <li>Distribución de espacios curriculares</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- MÓDULO POF -->
+        <div class="module-section" style="border-left-color: #f093fb;">
+            <h2><span class="module-icon">⚙️</span>MÓDULO POF (Planta Orgánica Funcional)</h2>
+            
+            <div class="task-list">
+                <h3>📊 Gestión de POF</h3>
+                <ul>
+                    <li>Plazas
+                        <ul>
+                            <li>Verificar coincidencia con el cuadro de organización</li>
+                            <li>Agregar días y horarios a todas las plazas</li>
+                            <li>Vincular divisiones a las plazas según corresponda</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="important-note">
+            <h3>💡 Importante</h3>
+            <p>
+                Estas tareas deben completarse al inicio del ciclo lectivo o al momento de la 
+                implementación del sistema. Es fundamental seguir el orden establecido para 
+                garantizar el correcto funcionamiento de NEXO.
+            </p>
+        </div>
+        
+        <!-- SECCIÓN DE VIDEOS -->
+        <div class="video-section">
+            <h2>🎥 Videos Tutoriales</h2>
+            <p>
+                Accedé a nuestra playlist completa con tutoriales paso a paso<br>
+                que te guiarán en cada una de las tareas anteriores.
+            </p>
+            <a href="https://www.youtube.com/playlist?list=PL39qw1nRZOwThEWRXLBo-RIgfgSMScWFT" 
+               target="_blank" 
+               class="video-button">
+                <span class="video-icon">▶️</span>
+                Ver Playlist de Videos
+            </a>
+            <p style="margin-top: 20px; font-size: 1em; color: #718096;">
+                Los videos incluyen demostraciones prácticas de cada módulo
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Soporte - NEXO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 1200px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+        
+        .contact-card.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+        
+        .contact-card.presencial {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .contact-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .contact-card h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .contact-info strong {
+            color: #667eea;
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            background: white;
+            color: #25D366;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .schedule {
+            background: #f7fafc;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border-left: 6px solid #667eea;
+        }
+        
+        .schedule h3 {
+            color: #2d3748;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .schedule-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .schedule-item h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .schedule-item p {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .faq {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        
+        .faq h3 {
+            color: #2d3748;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-item h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item p {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .home-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo-header img {
+            width: 120px;
+            height: 120px;
+        }
+        
+        @media print {
+            body { background: white; padding: 10px; }
+            .container { box-shadow: none; }
+            .home-button { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="00_indice_principal.html" class="home-button" title="Volver al Índice">🏠</a>
+    <div class="container">
+        <div class="logo-header">
+            <img src="logo-nexo.png" alt="Logo NEXO">
+        </div>
+        <h1>📞 CONTACTO Y SOPORTE</h1>
+        <p class="subtitle">Estamos aquí para ayudarte con cualquier consulta sobre NEXO</p>
+        
+        <div class="contact-grid">
+            <!-- WHATSAPP -->
+            <div class="contact-card whatsapp">
+                <span class="contact-icon">💬</span>
+                <h2>WhatsApp</h2>
+                <div class="contact-info">
+                    <strong>Soporte Técnico</strong>
+                    <p style="font-size: 2em; font-weight: bold; color: #25D366;">
+                        📱 3884-123456
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Consultás rápidas, dudas técnicas y asistencia inmediata
+                    </p>
+                </div>
+                <a href="https://wa.me/5493884123456" target="_blank" class="whatsapp-button">
+                    Abrir WhatsApp
+                </a>
+            </div>
+            
+            <!-- PRESENCIAL -->
+            <div class="contact-card presencial">
+                <span class="contact-icon">🏢</span>
+                <h2>Mesa de Ayuda Presencial</h2>
+                <div class="contact-info">
+                    <strong>Dirección</strong>
+                    <p>
+                        📍 [Dirección a completar]<br>
+                        San Salvador de Jujuy<br>
+                        Provincia de Jujuy
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Atención personalizada y capacitaciones
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HORARIOS -->
+        <div class="schedule">
+            <h3>🕐 Horarios de Atención</h3>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <h4>WhatsApp</h4>
+                    <p>
+                        <strong>Lunes a Viernes:</strong> 8:00 - 18:00 hs<br>
+                        <strong>Sábados:</strong> 9:00 - 13:00 hs<br>
+                        <em>Respuesta dentro de las 24 hs hábiles</em>
+                    </p>
+                </div>
+                
+                <div class="schedule-item">
+                    <h4>Mesa de Ayuda Presencial</h4>
+                    <p>
+                        <strong>Lunes a Viernes:</strong> 8:00 - 16:00 hs<br>
+                        <em>Se recomienda solicitar turno previo</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="faq">
+            <h3>❓ Preguntas Frecuentes</h3>
+            
+            <div class="faq-item">
+                <h4>¿Cómo solicito acceso al sistema?</h4>
+                <p>Contactá por WhatsApp con los datos de tu institución. El equipo técnico te brindará las credenciales de acceso.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>¿Qué hago si olvidé mi contraseña?</h4>
+                <p>Envianos un mensaje por WhatsApp indicando tu usuario. Te enviaremos instrucciones para recuperarla.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>¿Hay capacitaciones disponibles?</h4>
+                <p>Sí, ofrecemos capacitaciones presenciales y videos tutoriales. Consultá disponibilidad en la mesa de ayuda.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>¿El sistema está disponible fuera del horario laboral?</h4>
+                <p>El sistema está disponible 24/7. El soporte técnico responde en horarios indicados arriba.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
