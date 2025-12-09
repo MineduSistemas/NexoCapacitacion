@@ -18,6 +18,18 @@
         .card-body { padding: 20px; }
         .card-body p { font-size: 1em; margin-bottom: 15px; }
         .btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.95em; }
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .container { padding: 25px; border-radius: 15px; }
+            .logo { width: 120px !important; height: 120px !important; }
+            h1 { font-size: 1.8em !important; }
+            .materials-grid { grid-template-columns: 1fr !important; gap: 20px; }
+            .card-header { padding: 15px; }
+            .card-header h3 { font-size: 1.3em; }
+            .card-body { padding: 15px; }
+            .card-body p { font-size: 0.95em; }
+            .btn { padding: 10px 25px; font-size: 0.9em; }
+        }
     </style>
 </head>
 <body>

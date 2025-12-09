@@ -292,6 +292,18 @@
             height: 120px;
         }
         
+
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .container { padding: 25px; border-radius: 15px; }
+            .logo-header img { width: 80px !important; height: 80px !important; }
+            h1 { font-size: 1.8em !important; }
+            .subtitle { font-size: 1.1em; margin-bottom: 30px; }
+            .home-button { width: 50px; height: 50px; font-size: 1.5em; bottom: 20px; right: 20px; }
+            .task-list, .module-section, .contact-grid, .recording-card { grid-template-columns: 1fr !important; }
+            .contact-card, .schedule-grid, .recordings-grid { grid-template-columns: 1fr !important; }
+        }
+        
         @media print {
             body { background: white; padding: 10px; }
             .container { box-shadow: none; }
@@ -322,12 +334,12 @@
                 <div class="recording-header">
                     <div class="recording-icon">🎬</div>
                     <div class="recording-info">
-                        <h3>Capacitación Inicial</h3>
+                        <h3>Capacitación Nivel Secundario y Superior No Universitario</h3>
                         <div class="recording-date">📅 Fecha: 04/12/2025</div>
                     </div>
                 </div>
                 <div class="recording-description">
-                    Primera capacitación sobre el uso básico del sistema NEXO, orientada a directivos y personal administrativo.
+                    Encuentro 1: Capacitación sobre el uso básico del sistema NEXO, orientada a directivos y personal administrativo.
                 </div>
                 <div class="recording-topics">
                     <h4>Temas tratados:</h4>
@@ -340,8 +352,8 @@
                 </div>
                 <div class="coming-soon">
                     <a href="https://drive.google.com/file/d/1jbQB9DbpkaLv9Vg1240X1yteIxhF3d9w/view?usp=sharing" target="_blank" class="watch-button">
-                          <span class="icon">▶️</span>Ver Grabación
-                    </a>
+                        <span class="icon">▶️</span>Ver Grabación
+                  </a>
                 </div>
             </div>
             
@@ -364,9 +376,8 @@
                 <h3>Gestión de Recursos Humanos</h3>
                 <p>Enfocada en el área de RRHH</p>
             </div>
-        </div>
+        </div>        
         
-       
     </div>
 </body>
 </html>
