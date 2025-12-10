@@ -46,8 +46,8 @@
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
             margin-bottom: 40px;
         }
         
@@ -71,6 +71,10 @@
         
         .contact-card.presencial {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .contact-card.email {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
         .contact-icon {
@@ -143,7 +147,7 @@
         
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
         
@@ -263,6 +267,24 @@
         <p class="subtitle">Estamos aquí para ayudarte con cualquier consulta sobre NEXO</p>
         
         <div class="contact-grid">
+             <!-- EMAIL -->
+            <div class="contact-card email">
+                <span class="contact-icon">📧</span>
+                <h2>Correo Electrónico</h2>
+                <div class="contact-info">
+                    <strong>Email Institucional</strong>
+                    <p style="font-size: 2em; font-weight: bold; color: #f5576c">
+                        📩 
+                        nexo@jujuy.edu.ar    
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Consultas formales y solicitudes por escrito
+                    </p>
+                </div>
+                <a href="mailto:correo@jujuy.edu.ar" class="whatsapp-button" style="background: white; color: #f5576c;">
+                    Enviar Email
+                </a>
+            </div>
             <!-- WHATSAPP -->
             <div class="contact-card whatsapp">
                 <span class="contact-icon">💬</span>
@@ -270,10 +292,11 @@
                 <div class="contact-info">
                     <strong>Soporte Técnico</strong>
                     <p style="font-size: 2em; font-weight: bold; color: #25D366;">
-                        📱 3884-123456
+                        📱 3884581033
                     </p>
                     <p style="margin-top: 15px;">
-                        Consultás rápidas, dudas técnicas y asistencia inmediata
+                        -Solo Mensajes- Consultás rápidas, dudas técnicas y asistencia inmediata<br>
+                        🕐Lunes a viernes de 7:30 a 13hs
                     </p>
                 </div>
                 <a href="https://wa.me/5493884123456" target="_blank" class="whatsapp-button">
@@ -288,21 +311,31 @@
                 <div class="contact-info">
                     <strong>Dirección</strong>
                     <p>
-                        📍 [Dirección a completar]<br>
-                        San Salvador de Jujuy<br>
-                        Provincia de Jujuy
+                        📍 Gaspar Rosso 150, Bº Santa Rosa<br>
+                        ex-ENET 2<br>
+                        San Salvador de Jujuy<br>                        
                     </p>
                     <p style="margin-top: 15px;">
-                        Atención personalizada y capacitaciones
+                        Atención personalizada<br>
+                        🕐Lunes a viernes de 8 a 12hs.
                     </p>
                 </div>
-            </div>
+            </div>            
+           
         </div>
         
-        <!-- HORARIOS -->
+        <!-- HORARIOS
         <div class="schedule">
             <h3>🕐 Horarios de Atención</h3>
             <div class="schedule-grid">
+                <div class="schedule-item">
+                    <h4>Correo Electrónico</h4>
+                    <p>
+                        <strong>Respuesta:</strong> 24-48 hs hábiles<br>
+                        <strong>Disponible:</strong> 24/7<br>
+                        <em>Para consultas formales y documentadas</em>
+                    </p>
+                </div>
                 <div class="schedule-item">
                     <h4>WhatsApp</h4>
                     <p>
@@ -319,11 +352,13 @@
                         <em>Se recomienda solicitar turno previo</em>
                     </p>
                 </div>
+                
+                
             </div>
-        </div>
+        </div>-->
         
         <!-- FAQ -->
-        <div class="faq">
+        <!--<div class="faq">
             <h3>❓ Preguntas Frecuentes</h3>
             
             <div class="faq-item">
@@ -345,7 +380,7 @@
                 <h4>¿El sistema está disponible fuera del horario laboral?</h4>
                 <p>El sistema está disponible 24/7. El soporte técnico responde en horarios indicados arriba.</p>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>
